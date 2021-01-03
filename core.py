@@ -56,7 +56,7 @@ def create_cluster(tokens):
     if not re.match(r'^[\w-]+$', name):
         return "invalid cluster name. Only alphanumeric, '-', and '_' characters are allowed"
     
-    return 'creating new k8s cluster...'
+    return f'creating new k8s cluster {name} ...'
 
 def deploy(tokens):
     return 'deploying tranx...'
