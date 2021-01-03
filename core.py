@@ -34,9 +34,9 @@ def create_cluster(tokens):
     total_mem = mem*nodes
     total_cpu = cpu*nodes
     if total_cpu > 8:
-        return f'{total_cpu} is just too many cpus. no more than 8 total cpus are allowed'
+        return f'Not enough money!\n{total_cpu} is just too many cpus. no more than 8 total cpus are allowed'
     if total_mem > 12:
-        return f'{total_mem}g is just too much mem. no more than 12g total mem is allowed'
+        return f'Not enough money!\n{total_mem}g is just too much mem. no more than 12g total mem is allowed'
 
     geodict = {
         'ny': 'ny',
