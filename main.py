@@ -39,10 +39,17 @@ async def on_message(message):
     ):
         return
     print(message.content)
-
-    prefix = f'<@!{client.user.id}>'
-    if message.content.startswith(prefix):
-        resp = exec_cmd(message.content[len(prefix):].strip().lower())
-        await message.channel.send(resp)
+    
+    prefix = ''
+    if message.content.startswith(f'<@!{client.user.id}>'):
+        prefix = f'<@!{client.user.id}>'
+    elif message.content.startswith(f'<@{client.user.id}>'):
+        prefix = f'<@{client.user.id}>'
+    else:
+        return
+    
+    resp = exec_cmd(message.content[len(prefix):].strip().lower())
+    await message.channel.send(resp)
+    print(resp)
 
 client.run(os.getenv('TOKEN'))
